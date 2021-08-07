@@ -19,12 +19,12 @@ onready var animation_state = animation_tree.get("parameters/playback")
 func _ready():
 	animation_tree.active = true
 
-func _physics_process(delta):
+func _process(delta):
 	match state:
 		MOVE:
 			move_state(delta)
 		ROLL:
-			roll_state()
+			roll_state(delta)
 		ATTACK:
 			attack_state()
 	
@@ -58,7 +58,7 @@ func attack_state():
 func attack_animation_finished():
 	state = MOVE
 	
-func roll_state():
+func roll_state(delta):
 	velocity = move_and_slide(velocity)
 	animation_state.travel("Roll")
 	
