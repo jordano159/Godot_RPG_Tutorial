@@ -8,5 +8,6 @@ func create_grass_effect():
 	grass_effect.global_position = global_position
 
 func _on_Hurtbox_area_entered(area):
+	print("no grass")
 	create_grass_effect()
 	queue_free()
